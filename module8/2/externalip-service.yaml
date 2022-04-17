@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: external-ip
+spec:
+  selector:
+    app: httpserver
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 80
+  externalIPs:
+  - 172.16.201.130

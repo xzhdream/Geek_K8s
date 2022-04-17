@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeport-service
+  labels:
+    run: nodeport-service
+spec:
+  type: NodePort
+  ports:
+  - nodePort: 31111
+    port: 8080
+    targetPort: 80
+    protocol: TCP
+    name: http
+  selector:
+    app: httpserver

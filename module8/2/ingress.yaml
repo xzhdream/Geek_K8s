@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: httpserver-80
+spec: 
+  ingressClassName: nginx
+  rules:
+     - http:
+        paths:
+          - path: /test
+            pathType: Prefix
+            backend:
+              service:
+                name: nodeport-service
+                port:
+                  number: 8080
+
